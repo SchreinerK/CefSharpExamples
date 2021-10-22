@@ -1,0 +1,26 @@
+﻿<Window
+	x:Class="WorkingWithPlugins.Wpf.Net5.MainWindow"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:WorkingWithPlugins.Wpf.Net5"
+	mc:Ignorable="d"
+	Title="Working with plugins" Height="450" Width="800">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="3*"/>
+		</Grid.ColumnDefinitions>
+		<StackPanel Grid.Column="0">
+			<StackPanel Orientation="Horizontal">
+				<CheckBox x:Name="ViewPdfCheckBox" Content="View PDF" IsChecked="True"/>
+				<Button x:Name="RefreshButton" Content="Refresh" Click="RefreshButton_Click"/>
+			</StackPanel>
+			<ListBox Name="PluginsListbox" DisplayMemberPath="Name"/>
+		</StackPanel>
+		<DockPanel Name="BrowserPanel" LastChildFill="True" Grid.Column="1">
+
+		</DockPanel>
+	</Grid>
+</Window>

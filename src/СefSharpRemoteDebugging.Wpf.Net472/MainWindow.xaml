@@ -1,0 +1,24 @@
+﻿<Window 
+	x:Class="СefSharpRemoteDebugging.Wpf.Net472.MainWindow"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:СefSharpRemoteDebugging"
+	xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+	mc:Ignorable="d"
+	Title="СefSharp Remote Debugging" Height="450" Width="800">
+	<DockPanel>
+		<DockPanel DockPanel.Dock="Top">
+			<TextBox Text="{Binding Address, ElementName=LeftBrowser, Mode=OneWay}" KeyUp="Address_KeyUp"/>
+		</DockPanel>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			<wpf:ChromiumWebBrowser x:Name="LeftBrowser" Grid.Column="0" />
+			<wpf:ChromiumWebBrowser x:Name="RightBrowser" Grid.Column="1"/>
+		</Grid>
+	</DockPanel>
+</Window>

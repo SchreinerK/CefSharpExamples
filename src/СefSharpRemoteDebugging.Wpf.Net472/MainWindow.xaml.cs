@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,7 +7,7 @@ using System.Windows.Threading;
 using CefSharp;
 using CefSharp.Wpf;
 
- namespace СefSharpRemoteDebugging {
+namespace СefSharpRemoteDebugging.Wpf.Net472 {
 
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
@@ -27,7 +27,7 @@ using CefSharp.Wpf;
 			LeftBrowser.LoadError += LeftBrowser_LoadError;
 
 			// == NOT WORKING, only blank page displayed ==
-			//LeftBrowser.Address = "github.com";
+			LeftBrowser.Address = "github.com";
 			// Loaded += (s,e) => LeftBrowser.Address = "github.com";
 			// Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle,
 			// 	new Action(() => LeftBrowser.Address = "github.com"));
@@ -36,10 +36,10 @@ using CefSharp.Wpf;
 			// == END NOT WORKING ==
 			
 			// == WORKS but waiting is BAD ==
-			new DispatcherTimer(TimeSpan.FromSeconds(2), DispatcherPriority.Normal, (s, e) => {
-				((DispatcherTimer)s)?.Stop();
-				LeftBrowser.Address = "github.com";
-			}, Dispatcher).Start();
+			// new DispatcherTimer(TimeSpan.FromSeconds(2), DispatcherPriority.Normal, (s, e) => {
+			// 	((DispatcherTimer)s)?.Stop();
+			// 	LeftBrowser.Address = "github.com";
+			// }, Dispatcher).Start();
 		}
 
 		private void Dispatch(Action action) {
@@ -59,5 +59,6 @@ using CefSharp.Wpf;
 		private void Address_KeyUp(object sender, KeyEventArgs e) {
 			if (e.Key == Key.Enter) LeftBrowser.Address = ((TextBox)sender).Text;
 		}
+
 	}
  }
